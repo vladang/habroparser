@@ -36,13 +36,13 @@ class db
         if (empty($data)) return false;
         // Добавляем результаты в БД путем массовой вставки
         $this->pdo->beginTransaction();
-        $geo_result = $this->pdo->prepare('INSERT INTO articles (name, description, image, url, date_add) VALUES (:name, :description, :image, :url, now())');
+        $result = $this->pdo->prepare('INSERT INTO articles (name, description, image, url, date_add) VALUES (:name, :description, :image, :url, now())');
         foreach ($data as $val) {
-            $geo_result->bindParam(':name', $val->name);
-            $geo_result->bindParam(':description', $val->description);
-            $geo_result->bindParam(':image', $val->image);
-            $geo_result->bindParam(':url', $val->url);
-            $geo_result->execute();
+            $result->bindParam(':name', $val->name);
+            $result->bindParam(':description', $val->description);
+            $result->bindParam(':image', $val->image);
+            $result->bindParam(':url', $val->url);
+            $result->execute();
         }
         $this->pdo->commit();
     }
