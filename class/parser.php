@@ -3,7 +3,7 @@
 class parser extends db
 {
     private $parse_url = 'https://habr.com/ru/'; // URL парсинга
-    private $parse_count = 2; // Количество страниц парсинга
+    private $parse_count = 5; // Количество страниц парсинга
 
     /*
         Массовая отправка запросов через Curl
